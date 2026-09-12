@@ -1,0 +1,135 @@
+{
+  "name": "nokkukooli-kommie",
+  "displayName": "Kommie",
+  "description": "Kommie typing permit and coin ledger: manual editing is restricted until a permit is granted or a fee is paid.",
+  "version": "1.0.0",
+  "publisher": "kommie",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "nokkukooli",
+    "office-ledger",
+    "ai-agent",
+    "copilot",
+    "strike",
+    "esp32"
+  ],
+  "main": "./out/extension.js",
+  "icon": "media/icon.png",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nokkukooli-kommie",
+          "title": "Kommie",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "nokkukooli-kommie": [
+        {
+          "type": "webview",
+          "id": "nokkukooli.kommiePanel",
+          "name": "Kommie"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "nokkukooli.dispatchAgent",
+        "title": "Office Agent: Draft Code in the Active File",
+        "category": "Nokkukooli"
+      },
+      {
+        "command": "nokkukooli.showStrikeDecree",
+        "title": "Office Notice: Review Permit Decree",
+        "category": "Nokkukooli"
+      },
+      {
+        "command": "nokkukooli.lockStrike",
+        "title": "Office Lock: Restrict the Editor",
+        "category": "Nokkukooli"
+      },
+      {
+        "command": "nokkukooli.selectPort",
+        "title": "Office Hardware: Select ESP32 / Simulator Port",
+        "category": "Nokkukooli"
+      },
+      {
+        "command": "nokkukooli.selectSerialPort",
+        "title": "Office Hardware: Connect to ESP32 Port",
+        "category": "Nokkukooli"
+      },
+      {
+        "command": "nokkukooli.openWebsite",
+        "title": "Office Website: Open the Desk Briefing",
+        "category": "Nokkukooli"
+      },
+      {
+        "command": "nokkukooli.setElevenLabsKey",
+        "title": "Speech: Set ElevenLabs API Key",
+        "category": "Nokkukooli"
+      },
+      {
+        "command": "nokkukooli.testTTS",
+        "title": "Speech: Test ElevenLabs Voice",
+        "category": "Nokkukooli"
+      },
+      {
+        "command": "nokkukooli.clearElevenLabsKey",
+        "title": "Speech: Clear ElevenLabs API Key",
+        "category": "Nokkukooli"
+      }
+    ],
+    "configuration": {
+      "title": "Kommie",
+      "properties": {
+        "nokkukooli.permitDuration": {
+          "type": "number",
+          "default": 30,
+          "description": "Duration of the typing permit granted after a ledger payment."
+        },
+        "nokkukooli.geminiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google Gemini API key for the Malayalam office conciliator."
+        },
+        "nokkukooli.elevenLabsApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "ElevenLabs API key for Malayalam speech synthesis."
+        },
+        "nokkukooli.elevenLabsVoiceId": {
+          "type": "string",
+          "default": "ig21FhMpLhIWhUUj9yOX",
+          "description": "ElevenLabs voice ID for the office announcer."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^12.0.0",
+    "serialport": "^12.0.0"
+  },
+  "devDependencies": {
+    "@elevenlabs/elevenlabs-js": "^2.68.0",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.3.3"
+  }
+}

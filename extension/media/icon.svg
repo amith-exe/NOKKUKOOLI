@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B0000"/>
+      <stop offset="50%" stop-color="#5B0000"/>
+      <stop offset="100%" stop-color="#2D0000"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#8B0000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="retroShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="4" stdDeviation="2" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Background Plaque -->
+  <rect x="6" y="6" width="244" height="244" fill="url(#bgGrad)" stroke="#FFD700" stroke-width="4"/>
+  <rect x="14" y="14" width="228" height="228" fill="none" stroke="#FFD700" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Radial Glow Behind Emblems -->
+  <circle cx="128" cy="122" r="95" fill="url(#starGlow)"/>
+
+  <!-- Large Party Star -->
+  <polygon points="128,26 154,88 221,88 167,128 188,190 128,150 68,190 89,128 35,88 102,88"
+           fill="url(#goldGrad)" stroke="#8B0000" stroke-width="3" filter="url(#retroShadow)"/>
+
+  <!-- Hammer & Sickle Center Emblem -->
+  <g transform="translate(128, 126) scale(0.72) translate(-128, -128)" filter="url(#retroShadow)">
+    <!-- Sickle Blade -->
+    <path d="M 85,155 C 65,120 70,75 110,50 C 135,34 165,36 182,50 C 172,56 142,65 125,82 C 105,102 102,130 115,152 Z"
+          fill="#8B0000" stroke="#FFD700" stroke-width="3.5"/>
+    <!-- Sickle Handle -->
+    <path d="M 78,162 L 60,195 C 57,200 62,206 68,202 L 95,178 Z"
+          fill="#FFD700" stroke="#8B0000" stroke-width="2.5"/>
+    <!-- Hammer Head -->
+    <polygon points="128,95 180,60 195,80 143,115"
+             fill="#8B0000" stroke="#FFD700" stroke-width="3.5"/>
+    <!-- Hammer Handle -->
+    <polygon points="152,100 88,198 100,208 165,110"
+             fill="#FFD700" stroke="#8B0000" stroke-width="2.5"/>
+  </g>
+
+  <!-- Autonomous Union Cyber-Eye In Center -->
+  <g transform="translate(128,124)">
+    <circle cx="0" cy="0" r="17" fill="#1F0000" stroke="#FFD700" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="10" fill="#D62828"/>
+    <circle cx="0" cy="0" r="4.5" fill="#FFF8DC"/>
+  </g>
+
+  <!-- Banner Bottom -->
+  <rect x="24" y="206" width="208" height="28" fill="#1F0000" stroke="#FFD700" stroke-width="2"/>
+  <text x="128" y="225" font-family="'Impact', 'Arial Black', sans-serif" font-size="14" font-weight="bold"
+        fill="#FFD700" text-anchor="middle" letter-spacing="3">CITU-AI UNION</text>
+
+  <!-- Corner Stars -->
+  <text x="22" y="30" font-family="sans-serif" font-size="14" fill="#FFD700">★</text>
+  <text x="222" y="30" font-family="sans-serif" font-size="14" fill="#FFD700">★</text>
+</svg>
