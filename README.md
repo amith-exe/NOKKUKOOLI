@@ -188,13 +188,38 @@ flowchart TB
 
 # Build Photos
 
+<img width="396" height="520" alt="image" src="https://github.com/user-attachments/assets/7d162d0e-011b-4206-9d91-78dc20768a69" />
+
 <img width="406" height="550" alt="image" src="https://github.com/user-attachments/assets/85adead1-e89b-4450-97e5-671e247557f4" />
+
+#### Components pictuer
+
+<img width="987" height="557" alt="image" src="https://github.com/user-attachments/assets/cdd2f27f-0961-4874-b94e-8df6e7972fb4" />
+
+  -> list of components used
+  
+    Freenove ESP32-S3 Microcontroller Board (Quantity: 1)
+
+    128x64 SPI OLED Display - SSD1306 driver (Quantity: 1)
+
+    HC-SR04 Ultrasonic Distance Sensor (Quantity: 1)
+
+    Micro Servo Motors (Quantity: 2)
+
+    Piezo Mist Generator Module (Quantity: 1)
+-> Final build
+<img width="697" height="527" alt="image" src="https://github.com/user-attachments/assets/ef249741-7cad-4c13-9371-e4e354821965" />
+
+Build Journey Video: https://drive.google.com/drive/folders/10kj9D-wRr1ZJJ6Q2odVD12QUhY3tBbYD?usp=sharing
+
 
 ### Project Demo
 # Video
 [*(Link to video demo to be added)*](https://drive.google.com/drive/folders/1n8Yt4mt-epqzKZ2gL3_OR2DlSLlJ87M2?usp=sharing)
 
 # Additional Demos
+**Want to know what nookukooli is all about and why we built this chaotic little machine?** Head over to the documentation on our site (nokkukooli-live.vercel.app) to dive into the legendary Kerala inspection culture, see how we brought the ultimate "gazing fee" to your desk, and find out why we willingly chose to build the most counter-productive coding sentinel ever made.
+
 [nokkukooli-live.vercel.app](https://nokkukooli-live.vercel.app/)
 
 ## Team Contributions
