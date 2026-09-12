@@ -12,7 +12,7 @@
 ### Project Description
 **NOKKUKOOLI** is a satirical hardware-and-software apparatus inspired by the notorious Kerala concept of **“നോക്കുകൂലി”** (*looking-on charges* or *gawking wages*), transplanted into the 2026 AI developer era.
 
-**NOKKUKOOLI (CITU-AI)** turns this idea into a ridiculous desktop coding-agent experience: **you pay the agent for watching you work, not for doing the work.**
+**NOKKUKOOLI ** turns this idea into a ridiculous desktop coding-agent experience: **you pay the agent for watching you work, not for doing the work.**
 
 Instead of a union worker standing by and demanding payment, NOKKUKOOLI uses a **desktop robotic sentinel representing your coding agent**. The sentinel demands **കൂലി (kooli)** simply for allowing you to work.
 
@@ -76,7 +76,7 @@ For Software:
 2. Open the project in VS Code and press **`F5`** to launch the **Extension Development Host**.
 3. Select the **serial/COM port connected to the NOKKUKOOLI sentinel** from the extension.
 4. Open any code or text file and start working.
-5. The CITU-AI extension communicates with the physical sentinel through the selected serial port.
+5. The  extension communicates with the physical sentinel through the selected serial port.
 6. Pay the **കൂലി (kooli)** using the coin-drop mechanism to keep the sentinel happy. If you skip the payment or trigger a violation, the sentinel enters **Angry Mode** with flashing LEDs and raised arms.
 7. You can even **bargain with the agent** to reduce the demanded kooli.
 
