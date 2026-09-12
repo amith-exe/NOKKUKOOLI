@@ -79,7 +79,7 @@ For Hardware:
 [*(Link to video demo to be added)*](https://drive.google.com/drive/folders/1n8Yt4mt-epqzKZ2gL3_OR2DlSLlJ87M2?usp=sharing)
 
 # Additional Demos
-nokkukooli-live.vercel.app
+[nokkukooli-live.vercel.app](https://nokkukooli-live.vercel.app/)
 
 ## Team Contributions
 - Amith Biju - Software architecture, state machine logic, non-blocking sensor implementation, and serial interface.
