@@ -2,7 +2,9 @@
 
 # NOKKUKOOLI 
 
-<img width="997" height="567" alt="image" src="https://github.com/user-attachments/assets/039907d8-0d77-4a76-9f37-7b4b7c1ebdf2" />
+<img width="857" height="488" alt="image" src="https://github.com/user-attachments/assets/d83026b7-1d0a-44f9-a72e-cf4786e0c7a2" />
+
+
 
 
 ## Basic Details
