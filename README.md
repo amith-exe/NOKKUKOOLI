@@ -177,7 +177,8 @@ flowchart TB
 
 <img width="718" height="302" alt="image" src="https://github.com/user-attachments/assets/e2f96f5b-e310-411c-adea-d78f424e93f4" />
 
-#### TOY
+#### TOY IMG
+
 <img width="730" height="548" alt="image" src="https://github.com/user-attachments/assets/02fc06e5-7041-490b-8736-6ef89736b375" />
 <img width="695" height="517" alt="image" src="https://github.com/user-attachments/assets/e8145926-db9f-4387-9ca7-881738c49726" />
 <img width="698" height="521" alt="image" src="https://github.com/user-attachments/assets/64add2ec-8267-4208-89a7-18539c5d91b8" />
@@ -187,6 +188,14 @@ flowchart TB
 
 
 # Build Photos
+
+ DEMO TEST 1
+ 
+ ![NOKKUKOOLI Build Journey](ezgif.com-video-to-gif-converter_1.gif)
+
+  DEMO  TEST 2
+  
+   ![NOKKUKOOLI Build Journey](working_demo_2-ezgif.com-video-to-gif-converter.gif)
 
 <img width="396" height="520" alt="image" src="https://github.com/user-attachments/assets/7d162d0e-011b-4206-9d91-78dc20768a69" />
 
