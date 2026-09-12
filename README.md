@@ -2,6 +2,9 @@
 
 # NOKKUKOOLI 
 
+<img width="997" height="567" alt="image" src="https://github.com/user-attachments/assets/039907d8-0d77-4a76-9f37-7b4b7c1ebdf2" />
+
+
 ## Basic Details
 ### Team Name: Union leader
 
