@@ -10,15 +10,25 @@
 - Member 2: Amith Biju - Cochin University College of Engineering Kuttanad
 
 ### Project Description
-NOKKUKOOLI turns the traditional concept of നോക്കുകൂലി into a humorous hardware and software sentinel agent. The agent demands കൂലി (kooli) simply for being present and watching you work—charging you for the sheer privilege of its observation rather than any actual labor.
+**NOKKUKOOLI** is a satirical hardware-and-software apparatus inspired by the notorious Kerala concept of **“നോക്കുകൂലി”** (*looking-on charges* or *gawking wages*), transplanted into the 2026 AI developer era.
 
-Pay the kooli via coin drop → the sentinel accepts payment, turns happy, and lets you work.
-Skip the kooli or trigger a violation → the sentinel goes into an angry inspection mode, raises its automated arms, cuts off power/status via LED indicators, and flags a violation.
+**NOKKUKOOLI (CITU-AI)** turns this idea into a ridiculous desktop coding-agent experience: **you pay the agent for watching you work, not for doing the work.**
 
-The joke: the agent gets paid purely for watching you work while doing none of the heavy lifting.
+Instead of a union worker standing by and demanding payment, NOKKUKOOLI uses a **desktop robotic sentinel representing your coding agent**. The sentinel demands **കൂലി (kooli)** simply for allowing you to work.
+
+**Drop a coin →** the sentinel becomes happy and lets you continue coding.
+**Don't pay →** it becomes angry, raises its arms, and demands its kooli.
+**Try to bargain →** you can negotiate with the sentinel to reduce the demanded amount.
+
+The result is an intentionally ridiculous combination of **AI, hardware, and Kerala's Nokkukooli satire**—a coding agent that gets paid for simply watching you work while doing none of the heavy lifting.
+
 
 ### The Problem (that doesn't exist)
-Software developers and terminal jockeys type away all day without paying proper tribute to local inspection culture. There is an absolute lack of physical surveillance demanding a mandatory gaze fee just for existing near a workstation.
+Modern coding agents are designed to do the work for developers, but nobody has built one that demands payment for simply watching them work.
+
+**Inspired by Kerala's satirical concept of നോക്കുകൂലി (Nokkukooli),** the challenge is to create a playful desktop system where a coding-agent sentinel demands kooli before allowing the developer to continue working. If the payment is skipped, the sentinel becomes angry and demands its due—while giving the developer the opportunity to bargain and negotiate the kooli.
+
+**The problem:** How can we turn the absurd idea of paying an agent simply for watching you code into an interactive hardware-and-software experience?
 
 ### The Solution (that nobody asked for)
 A desktop toy that acts as the coding agent's Nokkukooli representative. It collects the agent's കൂലി (kooli) through a coin drop and reacts to whether you pay.
@@ -47,34 +57,88 @@ For Hardware:
 ### Implementation
 For Software:
 # Installation
-1. Clone the repository and open the project folder in Arduino IDE or VS Code with PlatformIO.
-2. Ensure the ESP32 board package version 3.x is installed.
-3. Install required library dependencies (`Adafruit GFX` and `Adafruit SSD1306`).
-4. Configure Arduino IDE settings: Set **USB CDC On Boot** to **Enabled**.
+
+1. Clone the repository and open the project folder.
+2. Flash the firmware from the `firmware/` folder onto the ESP32-S3 using **ESP-IDF**.
+3. Install the **CITU-AI VS Code extension** from the `extension/` folder and install its dependencies:
+
+   ```bash
+   cd extension
+   npm install
+   npm run compile
+   ```
+4. Configure the required API keys by copying `.env.example` to `.env.local` and adding your **Gemini** and **ElevenLabs** keys.
+5. Connect the ESP32-S3 to your computer via USB and identify the **COM/serial port** assigned to the device.
 
 # Run
-1. Connect your Freenove ESP32-S3 via the UART port.
-2. Compile and upload the firmware sketch.
-3. Open the Serial Monitor at **115200 baud** (Newline enabled) to view status logs and transmit test commands like `EVENT:VIOLATION`.
+
+1. Start the ESP32-S3 with the firmware flashed from the `firmware/` folder.
+2. Open the project in VS Code and press **`F5`** to launch the **Extension Development Host**.
+3. Select the **serial/COM port connected to the NOKKUKOOLI sentinel** from the extension.
+4. Open any code or text file and start working.
+5. The CITU-AI extension communicates with the physical sentinel through the selected serial port.
+6. Pay the **കൂലി (kooli)** using the coin-drop mechanism to keep the sentinel happy. If you skip the payment or trigger a violation, the sentinel enters **Angry Mode** with flashing LEDs and raised arms.
+7. You can even **bargain with the agent** to reduce the demanded kooli.
+
 
 ### Project Documentation
 For Hardware:
+# Diagram
+flowchart TB
+    subgraph Client["VS Code Extension Host (TypeScript)"]
+        subgraph EditorIntercept["Keystroke Interception & Policy Engine"]
+            TYPE["type command override"]
+            PASTE["paste command override"]
+            STATE["Permit State Machine"]
+        end
+        subgraph CoreServices["Background Services"]
+            SERIAL["SerialManager (UART Link)"]
+        end
+    end
+
+    subgraph HardwareSentinel["Physical ESP32 Desk Sentinel"]
+        MCU["ESP32-S3 Microcontroller"]
+        HCSR04["HC-SR04 Ultrasonic Sensor\n(Coin Deposit <= 5cm)"]
+        LED["Status / Violation LED (Pin 47)"]
+        SERVO["Micro Servos (Arms)"]
+        OLED["SPI OLED (SSD1306)"]
+    end
+
+    USER([Developer]) -->|Typing| TYPE
+    USER -->|Paste| PASTE
+    TYPE --> SERIAL
+    PASTE --> SERIAL
+    SERIAL <-->|USB-UART Serial (115200 Baud)| MCU
+    HCSR04 -->|Distance <= 5cm| MCU
+    MCU -->|EVENT:COIN| SERIAL
+    MCU -->|Toggle LED & Mood| LED
+    MCU -->|PWM Servo Angle| SERVO
+    MCU -->|SPI Display Refreshes| OLED
 
 # Schematic & Circuit Connections
-* **SPI OLED Display:**
-  * SCLK $\rightarrow$ GPIO 18
-  * MOSI $\rightarrow$ GPIO 13
-  * DC $\rightarrow$ GPIO 16
-  * RESET $\rightarrow$ GPIO 17
-  * CS $\rightarrow$ Tied LOW / -1
-* **HC-SR04 Ultrasonic Sensor:**
-  * Trig $\rightarrow$ GPIO 5
-  * Echo $\rightarrow$ GPIO 15
-* **Actuators (Servos):**
-  * Left Arm Servo $\rightarrow$ GPIO 21
-  * Right Arm Servo $\rightarrow$ GPIO 45
-* **Indicators:**
-  * Status piezo electric module $\rightarrow$ GPIO 47
++-------------------+
+                      |   ESP32-S3-Dev    |
+                      |                   |
+  +5V (VBUS / VIN) ---+ 5V / VIN          |
+  GND ----------------+ GND               |
+                      |                   |
+  (Ultrasonic Sensor) |                   |
+                      |      GPIO 5 (TRIG)+----------------> [HC-SR04 TRIG]
+                      |      GPIO 15(ECHO)<---------------- [HC-SR04 ECHO]
+                      |                   |
+  (Status LED)        |                   |
+                      |     GPIO 47 (LED) +----[220Ω]----->|--- GND
+                      |                   |              (LED)
+  (Servo Motors)      |                   |
+                      |    GPIO 21 (PWM)  +----------------> [Servo 1 Signal]
+                      |    GPIO 45 (PWM)  +----------------> [Servo 2 Signal]
+                      |                   |
+  (SPI OLED Display)  |    GPIO 18 (SCLK) +----------------> [OLED SCLK]
+                      |    GPIO 13 (MOSI) +----------------> [OLED MOSI]
+                      |    GPIO 16 (DC)   +----------------> [OLED DC]
+                      |    GPIO 17 (RST)  +----------------> [OLED RST]
+                      +-------------------+
+      Schematic Diagram: Physical pinout layout of the Freenove ESP32-S3 microcontroller and its interconnected peripherals.
 ### screenshots
 #### vs code extension 
 <img width="1533" height="817" alt="image" src="https://github.com/user-attachments/assets/4f4dc750-c2b9-4ff5-97d9-5f0ae741ed3c" />
