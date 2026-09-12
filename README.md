@@ -215,7 +215,7 @@ Build Journey Video: https://drive.google.com/drive/folders/10kj9D-wRr1ZJJ6Q2odV
 
 ### Project Demo
 # Video
-[*(Link to video demo to be added)*](https://drive.google.com/drive/folders/1n8Yt4mt-epqzKZ2gL3_OR2DlSLlJ87M2?usp=sharing)
+[*(Link to video demo *](https://drive.google.com/drive/folders/1n8Yt4mt-epqzKZ2gL3_OR2DlSLlJ87M2?usp=sharing)
 
 # Additional Demos
 **Want to know what nookukooli is all about and why we built this chaotic little machine?** Head over to the documentation on our site (nokkukooli-live.vercel.app) to dive into the legendary Kerala inspection culture, see how we brought the ultimate "gazing fee" to your desk, and find out why we willingly chose to build the most counter-productive coding sentinel ever made.
