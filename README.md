@@ -81,11 +81,13 @@ For Software:
 7. You can even **bargain with the agent** to reduce the demanded kooli.
 
 
-### Project Documentation
+
+                      |    GPIO 17 (RST)  +----------------> [OLED RST]### Project Documentation
 For Hardware:
 # Diagram
 flowchart TB
     subgraph Client["VS Code Extension Host (TypeScript)"]
+        direction TB
         subgraph EditorIntercept["Keystroke Interception & Policy Engine"]
             TYPE["type command override"]
             PASTE["paste command override"]
@@ -97,6 +99,7 @@ flowchart TB
     end
 
     subgraph HardwareSentinel["Physical ESP32 Desk Sentinel"]
+        direction TB
         MCU["ESP32-S3 Microcontroller"]
         HCSR04["HC-SR04 Ultrasonic Sensor\n(Coin Deposit <= 5cm)"]
         LED["Status / Violation LED (Pin 47)"]
@@ -106,8 +109,9 @@ flowchart TB
 
     USER([Developer]) -->|Typing| TYPE
     USER -->|Paste| PASTE
-    TYPE --> SERIAL
-    PASTE --> SERIAL
+    TYPE --> STATE
+    PASTE --> STATE
+    STATE -->|Locked State Trigger| SERIAL
     SERIAL <-->|USB-UART Serial (115200 Baud)| MCU
     HCSR04 -->|Distance <= 5cm| MCU
     MCU -->|EVENT:COIN| SERIAL
@@ -116,28 +120,9 @@ flowchart TB
     MCU -->|SPI Display Refreshes| OLED
 
 # Schematic & Circuit Connections
-+-------------------+
-                      |   ESP32-S3-Dev    |
-                      |                   |
-  +5V (VBUS / VIN) ---+ 5V / VIN          |
-  GND ----------------+ GND               |
-                      |                   |
-  (Ultrasonic Sensor) |                   |
-                      |      GPIO 5 (TRIG)+----------------> [HC-SR04 TRIG]
-                      |      GPIO 15(ECHO)<---------------- [HC-SR04 ECHO]
-                      |                   |
-  (Status LED)        |                   |
-                      |     GPIO 47 (LED) +----[220Ω]----->|--- GND
-                      |                   |              (LED)
-  (Servo Motors)      |                   |
-                      |    GPIO 21 (PWM)  +----------------> [Servo 1 Signal]
-                      |    GPIO 45 (PWM)  +----------------> [Servo 2 Signal]
-                      |                   |
-  (SPI OLED Display)  |    GPIO 18 (SCLK) +----------------> [OLED SCLK]
-                      |    GPIO 13 (MOSI) +----------------> [OLED MOSI]
-                      |    GPIO 16 (DC)   +----------------> [OLED DC]
-                      |    GPIO 17 (RST)  +----------------> [OLED RST]
-                      +-------------------+
+<img width="682" height="491" alt="image" src="https://github.com/user-attachments/assets/93d925b4-676f-441d-9eca-6379655607df" />
+
+
       Schematic Diagram: Physical pinout layout of the Freenove ESP32-S3 microcontroller and its interconnected peripherals.
 ### screenshots
 #### vs code extension 
