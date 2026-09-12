@@ -21,7 +21,13 @@ The joke: the agent gets paid purely for watching you work while doing none of t
 Software developers and terminal jockeys type away all day without paying proper tribute to local inspection culture. There is an absolute lack of physical surveillance demanding a mandatory gaze fee just for existing near a workstation.
 
 ### The Solution (that nobody asked for)
-An interactive hardware sentinel powered by an ESP32-S3 that monitors your distance via ultrasonic sensor, coordinates expressions on an SPI OLED display, articulates dual servo-driven arms, and integrates with your computer via serial communication to lock down workflows until the coin tribute is paid.
+A desktop toy that acts as the coding agent's Nokkukooli representative. It collects the agent's കൂലി (kooli) through a coin drop and reacts to whether you pay.
+
+Pay the kooli → the sentinel becomes happy and lets you work.
+Don't pay → it becomes angry, raises its arms, and demands payment.
+Try to bargain → negotiate with the sentinel to reduce the kooli and get back to work.
+
+It's an unnecessarily physical way of turning നോക്കുകൂലി into a hilarious interaction between you and your coding agent.
 
 ## Technical Details
 ### Technologies/Components Used
@@ -70,9 +76,13 @@ For Hardware:
 * **Indicators:**
   * Status piezo electric module $\rightarrow$ GPIO 47
 ### screenshots
+#### vs code extension 
 <img width="1533" height="817" alt="image" src="https://github.com/user-attachments/assets/4f4dc750-c2b9-4ff5-97d9-5f0ae741ed3c" />
 
 <img width="718" height="302" alt="image" src="https://github.com/user-attachments/assets/e2f96f5b-e310-411c-adea-d78f424e93f4" />
+####TOY
+<img width="730" height="548" alt="image" src="https://github.com/user-attachments/assets/02fc06e5-7041-490b-8736-6ef89736b375" />
+<img width="406" height="550" alt="image" src="https://github.com/user-attachments/assets/85adead1-e89b-4450-97e5-671e247557f4" />
 
 ### Project Demo
 # Video
