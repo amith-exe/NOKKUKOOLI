@@ -81,49 +81,96 @@ For Software:
 7. You can even **bargain with the agent** to reduce the demanded kooli.
 
 
-
-                      |    GPIO 17 (RST)  +----------------> [OLED RST]### Project Documentation
+## Project Documentation
+                      
 For Hardware:
 # Diagram
+### Architecture
+
+```mermaid
 flowchart TB
-    subgraph Client["VS Code Extension Host (TypeScript)"]
+
+    subgraph Client["VS Code Extension Host - TypeScript"]
         direction TB
-        subgraph EditorIntercept["Keystroke Interception & Policy Engine"]
-            TYPE["type command override"]
-            PASTE["paste command override"]
+
+        subgraph EditorIntercept["Keystroke Interception and Policy Engine"]
+            direction TB
+            TYPE["Type Command Override"]
+            PASTE["Paste Command Override"]
             STATE["Permit State Machine"]
         end
+
+        subgraph UILayer["User Interfaces"]
+            direction TB
+            MODAL["Constructivist Strike Modal<br/>Webview Audio and Bribe Ledger"]
+            SIDEBAR["Soviet Sidebar<br/>Port Selector and Agent Dispatch"]
+        end
+
         subgraph CoreServices["Background Services"]
-            SERIAL["SerialManager (UART Link)"]
+            direction TB
+            AGENT["AgentService<br/>vscode.lm / Copilot"]
+            CONCIL["ConciliatorService<br/>Gemini API"]
+            TTS["TtsService<br/>ElevenLabs API"]
+            SERIAL["SerialManager<br/>115200 Baud UART"]
         end
     end
 
-    subgraph HardwareSentinel["Physical ESP32 Desk Sentinel"]
+    subgraph CloudAI["Cloud AI Infrastructure"]
         direction TB
-        MCU["ESP32-S3 Microcontroller"]
-        HCSR04["HC-SR04 Ultrasonic Sensor\n(Coin Deposit <= 5cm)"]
-        LED["Status / Violation LED (Pin 47)"]
-        SERVO["Micro Servos (Arms)"]
-        OLED["SPI OLED (SSD1306)"]
+        GEMINI["Google Gemini API<br/>Comrade Conciliator"]
+        ELEVEN["ElevenLabs API<br/>Malayalam Strike Voice"]
+        COPILOT["GitHub Copilot LLM<br/>Proletarian Code Generation"]
     end
 
-    USER([Developer]) -->|Typing| TYPE
-    USER -->|Paste| PASTE
-    TYPE --> STATE
-    PASTE --> STATE
-    STATE -->|Locked State Trigger| SERIAL
-    SERIAL <-->|USB-UART Serial (115200 Baud)| MCU
-    HCSR04 -->|Distance <= 5cm| MCU
+    subgraph HardwareSentinel["Physical ESP32-S3 Desk Sentinel"]
+        direction TB
+        MCU["ESP32-S3 Microcontroller"]
+        HCSR04["HC-SR04 Ultrasonic Sensor<br/>Coin Detection"]
+        LED["Status / Violation LED<br/>GPIO 47"]
+        SERVO1["Micro Servo 1 - Left Arm<br/>GPIO 21"]
+        SERVO2["Micro Servo 2 - Right Arm<br/>GPIO 45"]
+        OLED["SPI OLED Display<br/>SSD1306"]
+    end
+
+    USER(["Developer"]) -->|Typing / Paste| TYPE
+    USER -->|Typing / Paste| PASTE
+
+    TYPE -->|Check Locked State| STATE
+    PASTE -->|Check Locked State| STATE
+
+    STATE -->|Locked - Block Input| MODAL
+    STATE -->|Violation| SERIAL
+
+    USER -->|Voice Plea| MODAL
+    MODAL -->|Audio / Text Plea| CONCIL
+    CONCIL -->|Negotiate Kooli| GEMINI
+
+    CONCIL -->|Malayalam Speech Request| TTS
+    TTS -->|Synthesize Speech| ELEVEN
+    TTS -->|Return Audio| MODAL
+
+    USER -->|Commission Agent| SIDEBAR
+    SIDEBAR -->|Coding Prompt| AGENT
+    AGENT -->|Generate Code| COPILOT
+
+    SERIAL <-->|USB Serial - 115200 Baud| MCU
+
+    HCSR04 -->|Coin Detected| MCU
     MCU -->|EVENT:COIN| SERIAL
-    MCU -->|Toggle LED & Mood| LED
-    MCU -->|PWM Servo Angle| SERVO
-    MCU -->|SPI Display Refreshes| OLED
+    SERIAL -->|Update Kooli Balance| STATE
+
+    MCU -->|LED Control| LED
+    MCU -->|PWM Control| SERVO1
+    MCU -->|PWM Control| SERVO2
+    MCU -->|Display Expression| OLED
+```
 
 # Schematic & Circuit Connections
 <img width="682" height="491" alt="image" src="https://github.com/user-attachments/assets/93d925b4-676f-441d-9eca-6379655607df" />
 
-
-      Schematic Diagram: Physical pinout layout of the Freenove ESP32-S3 microcontroller and its interconnected peripherals.
+<img width="1060" height="500" alt="image" src="https://github.com/user-attachments/assets/b00cd4e3-0c36-4232-bf0b-afe1332a12ad" />
+         Schematic Diagram: Physical pinout layout of the Freenove ESP32-S3 microcontroller and its interconnected peripherals.
+         
 ### screenshots
 #### vs code extension 
 <img width="1533" height="817" alt="image" src="https://github.com/user-attachments/assets/4f4dc750-c2b9-4ff5-97d9-5f0ae741ed3c" />
@@ -132,6 +179,15 @@ flowchart TB
 
 #### TOY
 <img width="730" height="548" alt="image" src="https://github.com/user-attachments/assets/02fc06e5-7041-490b-8736-6ef89736b375" />
+<img width="695" height="517" alt="image" src="https://github.com/user-attachments/assets/e8145926-db9f-4387-9ca7-881738c49726" />
+<img width="698" height="521" alt="image" src="https://github.com/user-attachments/assets/64add2ec-8267-4208-89a7-18539c5d91b8" />
+<img width="693" height="525" alt="image" src="https://github.com/user-attachments/assets/8cdcc844-1259-4575-9291-8171a450e21d" />
+
+
+
+
+# Build Photos
+
 <img width="406" height="550" alt="image" src="https://github.com/user-attachments/assets/85adead1-e89b-4450-97e5-671e247557f4" />
 
 ### Project Demo
