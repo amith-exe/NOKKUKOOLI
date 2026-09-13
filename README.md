@@ -65,7 +65,7 @@ For Software:
 
 1. Clone the repository and open the project folder.
 2. Flash the firmware from the `firmware/` folder onto the ESP32-S3 using **ESP-IDF**.
-3. Install the **CITU-AI VS Code extension** from the `extension/` folder and install its dependencies:
+3. Install the **Kammi-AI VS Code extension** from the `extension/` folder and install its dependencies:
 
    ```bash
    cd extension
