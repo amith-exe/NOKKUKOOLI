@@ -11,8 +11,8 @@
 ### Team Name: Union leader
 
 ### Team Members
-- Team Lead: Alen Elias Cherian - Cochin University College of Engineering Kuttanad
-- Member 2: Amith Biju - Cochin University College of Engineering Kuttanad
+- Team Lead: Alen Elias Cherian - Cochin University College of Engineering,Kuttanad
+- Member 2: Amith Biju - Cochin University College of Engineering,Kuttanad
 
 ### Project Description
 **NOKKUKOOLI** is a satirical hardware-and-software apparatus inspired by the notorious Kerala concept of **“നോക്കുകൂലി”** (*looking-on charges* or *gawking wages*), transplanted into the 2026 AI developer era.
